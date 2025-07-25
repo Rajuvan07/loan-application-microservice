@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: API-Gateway
+
+
+
+
+
+
+  cloud:
+    gateway:
+      routes:
+        - id: loan-service
+          uri: lb://loan-service
+          predicates:
+            - Path=/api/loan/**
+
+server:
+  port: 9093
+eureka:
+  instance:
+    hostname: localhost
